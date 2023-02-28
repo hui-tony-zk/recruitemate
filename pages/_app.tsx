@@ -10,6 +10,19 @@ import { AppProps } from 'next/app';
 import { MyUserContextProvider } from 'utils/useUser';
 import type { Database } from 'types_db';
 
+// import MUI
+import PropTypes from 'prop-types';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#678983'
+    }
+  },
+});
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [supabaseClient] = useState(() =>
     createBrowserSupabaseClient<Database>()
@@ -19,7 +32,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <div className="bg-black">
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <SessionContextProvider supabaseClient={supabaseClient}>
         <MyUserContextProvider>
           <Layout>
@@ -27,6 +41,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           </Layout>
         </MyUserContextProvider>
       </SessionContextProvider>
-    </div>
+    </ThemeProvider>
   );
 }

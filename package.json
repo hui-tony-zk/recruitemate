@@ -9,6 +9,10 @@
     "stripe:listen": "stripe listen --forward-to=localhost:3000/api/webhooks --project-name=saas-starter"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.9",
+    "@mui/material": "^5.11.10",
     "@stripe/stripe-js": "1.22.0",
     "@supabase/auth-helpers-nextjs": "^0.4.1",
     "@supabase/auth-helpers-react": "^0.3.0",
@@ -24,6 +28,7 @@
     "tailwindcss": "3.0.18"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
     "@types/classnames": "2.3.1",
     "@types/node": "^17.0.13",
     "@types/react": "^17.0.38",
