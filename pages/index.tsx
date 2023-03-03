@@ -6,12 +6,20 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import ChatIcon from '@mui/icons-material/Chat';
 import SearchIcon from '@mui/icons-material/Search';
+import Link from 'next/link';
 
 interface CardProps {
     title: string;
     description?: string;
 }
 function Card({ title, description }: CardProps) {
+
+    const router = useRouter();
+
+    function GoToPractise() {
+        router.push('/practice');
+      };
+
     return (
         <div className="border border-zinc-700	max-w-3xl w-full p rounded-md m-auto my-8">
             <div className="p-3">
@@ -19,13 +27,16 @@ function Card({ title, description }: CardProps) {
                 <p className="text-zinc-300">{description}</p>
             </div>
             <div className="border-t border-zinc-700 bg-zinc-900 p-4 text-zinc-500 rounded-b-md">
-                <Button variant="contained" endIcon={<ChatIcon />}>
+            <Link href="/practice">
+                <Button variant="contained" endIcon={<ChatIcon />} onClick={GoToPractise}>
                     Start practise
                 </Button>
+            </Link>
             </div>
         </div>
     );
 }
+
 
 const HomePage = () => {
     const router = useRouter();
