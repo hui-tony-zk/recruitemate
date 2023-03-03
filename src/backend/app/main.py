@@ -9,6 +9,22 @@ import pydub
 
 app = FastAPI()
 
+html = """
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>This is the homepage</title>
+    </head>
+    <body>
+    <h1>Homepage</h1>
+    </body>
+</html>
+"""
+
+@app.get("/")
+async def get():
+    return HTMLResponse(html)
+    
 @app.websocket("/practice")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
@@ -36,7 +52,3 @@ async def websocket_endpoint(websocket: WebSocket):
         raise Exception(f'Could not process audio: {e}')
     finally:
         await websocket.close()
-
-
-if __name__ == '__main__':
-    uvicorn.run(app)
