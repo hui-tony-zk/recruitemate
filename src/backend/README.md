@@ -33,4 +33,8 @@ These scripts are used to set up the project dependencies and start the developm
 
 This will start the server and the application will be accessible at `http://localhost:8000`.
 
-## Troubleshooting
+## API
+Input: Bytes (Audio)
+Takes in browser based audio to the /listen route. 
+
+Output - No Output yet

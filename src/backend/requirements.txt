@@ -6,3 +6,4 @@ pydub==0.25.1
 uvicorn==0.20.0
 fastapi==0.92.0
 soundfile==0.12.1
+websockets==10.4

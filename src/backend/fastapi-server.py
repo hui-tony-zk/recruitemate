@@ -20,7 +20,7 @@ async def websocket_endpoint(websocket: WebSocket):
             audio = pydub.AudioSegment.from_raw(buffer, sample_width=2, frame_rate=44100, channels=1)
             segments = split_on_silence(audio, min_silence_len=1000, silence_thresh=-50)
             
-            # Convert each segment into an mp3 file
+            # Convert each segment into an mp3 file (Temporarily till we bring it bytestream in-memory)
             for i, segment in enumerate(segments):
                 output_path = f"output_{i}.mp3"
                 segment.export(output_path, format="mp3")
