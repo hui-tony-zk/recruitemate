@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import ChatIcon from '@mui/icons-material/Chat';
 import SearchIcon from '@mui/icons-material/Search';
+import Link from 'next/link';
 
 interface CardProps {
     title: string;
@@ -19,9 +20,11 @@ function Card({ title, description }: CardProps) {
                 <p className="text-zinc-300">{description}</p>
             </div>
             <div className="border-t border-zinc-700 bg-zinc-900 p-4 text-zinc-500 rounded-b-md">
-                <Button variant="contained" endIcon={<ChatIcon />}>
-                    Start practise
-                </Button>
+                <Link href="/practise">
+                    <Button variant="contained" endIcon={<ChatIcon />}>
+                        Start practise
+                    </Button>
+                </Link>
             </div>
         </div>
     );
